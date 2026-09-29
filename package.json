@@ -1,0 +1,5 @@
+{
+  "name": "derby-caracoles",
+  "private": true,
+  "workspaces": ["backend", "frontend"]
+}
