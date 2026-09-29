@@ -95,3 +95,14 @@ export function getCurrentUser(): PublicUser | null {
   }
   return toPublicUser(user);
 }
+ /** Suma centavos al saldo del usuario y devuelve el saldo nuevo. */
+export function creditBalance(email: string, cents: number): number {
+  if (!Number.isInteger(cents) || cents <= 0) throw new Error('Monto inválido');
+  const users = readUsers();
+  const user = users[email];
+  if (!user) throw new Error('Usuario no encontrado');
+
+  const updated: StoredUser = { ...user, balanceCents: user.balanceCents + cents };
+  writeUsers({ ...users, [email]: updated });
+  return updated.balanceCents;
+}
