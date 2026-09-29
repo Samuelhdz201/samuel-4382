@@ -1,5 +1,11 @@
 {
   "name": "derby-caracoles",
   "private": true,
-  "workspaces": ["backend", "frontend"]
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "dev:api": "npm run dev -w backend",
+    "dev:web": "npm run dev -w frontend",
+    "test": "npm test --workspaces",
+    "check": "npm test && npm run typecheck -w backend && npm run build -w frontend && npm run lint -w frontend"
+  }
 }
