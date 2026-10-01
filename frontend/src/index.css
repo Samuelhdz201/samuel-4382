@@ -48,3 +48,6 @@ button:disabled { opacity: 0.6; cursor: not-allowed; }
 .notice { margin: 0 0 1rem; padding: 0.6rem 0.75rem; border-radius: 8px; font-size: 0.9rem; }
 .notice-success { background: #e3f4ec; color: #14532d; }
 .notice-error { background: #fbe9e7; color: var(--danger); }
+.charts { display: grid; gap: 1.5rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); margin-top: 1.5rem; }
+.chart { margin: 0; }
+.chart figcaption { margin-top: 0.5rem; font-size: 0.85rem; color: var(--muted); text-align: center; }

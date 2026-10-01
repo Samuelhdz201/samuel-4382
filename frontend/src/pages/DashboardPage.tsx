@@ -1,6 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../features/auth/useAuth';
 import { TopUpPanel } from '../features/payments/TopUpPanel';
+import { BetsDonut } from '../features/stats/BetsDonut';
+import { WinsBarChart } from '../features/stats/WinsBarChart';  
 import { formatCents } from '../lib/money';
 
 export function DashboardPage() {
@@ -32,6 +34,16 @@ export function DashboardPage() {
           <p className="balance-value">{formatCents(user.balanceCents)}</p>
         </section>
         <TopUpPanel user={user} onSuccess={refreshUser} />
+      </div>
+      <div className="charts">
+        <section className="panel" aria-labelledby="bets-title">
+          <h2 id="bets-title">Apuestas ganadas y perdidas</h2>
+          <BetsDonut />
+        </section>
+        <section className="panel" aria-labelledby="wins-title">
+          <h2 id="wins-title">Victorias por caracol (día simulado)</h2>
+          <WinsBarChart />
+        </section>
       </div>
     </main>
   );
